@@ -1,0 +1,52 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 10,
+        "byte": 1048576
+      },
+      "errorLimit": {
+        "record": 0,
+        "percentage": 0.02
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "mysqlreader",
+          "parameter": {
+            "username": "$reader_username",
+            "password": "$reader_password",
+            "connection": [
+              {
+                "jdbcUrl": [
+                  "$reader_jdbcUrl"
+                ],
+                "querySql": [
+                  "$reader_querySql"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "mysqlwriter",
+          "parameter": {
+            "username": "$writer_username",
+            "password": "$writer_password",
+            "writeMode": "update",
+            "column": $writer_column,
+            "connection": [
+              {
+                "table": [
+                  "$writer_table"
+                ],
+                "jdbcUrl": "$writer_jdbcUrl"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 1
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "mysqlreader",
+          "parameter": {
+            "username": "$reader_username",
+            "password": "$reader_password",
+            "connection": [
+              {
+                "jdbcUrl": [
+                  "$reader_jdbcUrl"
+                ],
+                "querySql": [
+                  "$reader_querySql"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "elasticsearchwriter",
+          "parameter": {
+            "endpoint": "$writer_endpoint",
+            "accessId": "$writer_accessId",
+            "accessKey": "$writer_accessKey",
+            "index": "$writer_index",
+            "type": "default",
+            "cleanup": false,
+            "discovery": false,
+            "dynamic": true,
+            "batchSize": 1000,
+            "splitter": ",",
+            "column": $writer_column
+          }
+        }
+      }
+    ]
+  }
+}
