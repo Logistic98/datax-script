@@ -415,7 +415,7 @@ rm -rf ${tempPath}/${i/.json/_temp.json}
 done
 ```
 
-先把5.2节同步过去的全量数据清空，执行增量同步脚本。
+先把之前同步过去的全量数据清空，执行增量同步脚本。
 
 ```
 $ chmod u+x /datax/script/auto_sync_data.sh && /datax/script/auto_sync_data.sh
